@@ -14,3 +14,7 @@ Estrutura:
 - `notebooks/` - experimentos e protótipos
 - `tests/` - testes unitários
 - `docs/` - documentação
+
+Fluxo de síntese do circuito fotônico:
+
+![fluxo](docs/fluxo.png)
