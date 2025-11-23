@@ -1,0 +1,37 @@
+# Python
+# Byte-code files
+__pycache__
+*.pyc
+*.pyd
+*.pyo
+
+# Distributions and packaging
+.Python
+build/
+dist/
+wheels/
+*.egg-info/
+*.egg
+
+# Virtual environment
+# If you are using a virtual environment in your project's root directory, uncomment the following line and change the name if necessary
+venv/
+.venv/
+
+# Dependencies
+# Pipenv lock file (if you are not using pipenv, ignore this)
+# Pipfile.lock
+
+# Operating System Files
+.DS_Store # macOS files
+Thumbs.db # Windows files
+
+# IDE-specific files (uncomment the ones you use)
+# .idea/         # PyCharm
+# .vscode/       # VS Code
+# .history/      # VS Code
+# *.swp          # Vim
+# *.sublime-project
+# *.sublime-workspace
+
+# 
