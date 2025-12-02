@@ -12,7 +12,6 @@ dist/
 wheels/
 *.egg-info/
 *.egg
-
 # Virtual environment
 # If you are using a virtual environment in your project's root directory, uncomment the following line and change the name if necessary
 venv/
