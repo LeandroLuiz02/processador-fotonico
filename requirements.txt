@@ -1,0 +1,4 @@
+numpy==2.3.5
+jupyter==1.1.1
+perceval-quandela==1.1.0
+sympy==1.14.0
