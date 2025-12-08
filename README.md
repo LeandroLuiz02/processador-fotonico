@@ -14,6 +14,7 @@ Estrutura:
 - `notebooks/` - experimentos e protótipos
 - `tests/` - testes unitários
 - `docs/` - documentação
+- `tools/` - métodos auxiliares
 
 Fluxo de síntese do circuito fotônico:
 
