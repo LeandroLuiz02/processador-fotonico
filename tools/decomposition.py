@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.optimize import least_squares
 import itertools as it
-from typing import Optional, Sequence, Tuple
+from typing import Optional
 
 # quantum gates for testing
 Toffoli = np.array([
