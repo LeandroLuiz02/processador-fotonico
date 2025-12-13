@@ -1,5 +1,8 @@
 import logging
 import numpy as np
+import perceval as pcvl
+from perceval.algorithm import Sampler
+from perceval.components import PS, BS
 
 def svd_decomposition(A: np.array):
     """
@@ -83,3 +86,32 @@ def print_circuit_structure(phis, thetas, alphas):
     print("Output Phase Screen:")
     for i, alpha in enumerate(alphas):
         print(f"  WG-{i}: Phase Shifter = {alpha:.3f}")
+
+def build_prcvl_circuit(v_phis, v_thetas, v_alphas, name, size, add_alpha=False):
+    rows, cols = v_phis.shape
+    dim = rows + 1 # Number of waveguides (N)
+    vt_circuit = pcvl.Circuit(size, name=name)
+    for p in range(cols):
+        print(f"Layer {p}:")
+        start_row = 0
+        found_block = False
+        for q in range(rows):
+            is_even_layer = (p % 2 == 0)
+            is_even_row   = (q % 2 == 0)
+    
+            if (is_even_layer and is_even_row) or (not is_even_layer and not is_even_row):
+                phi_val = v_phis[q, p]
+                theta_val = v_thetas[q, p]
+                print(f"  [MZI] connecting WG-{q} & WG-{q+1} | phi={phi_val:.3f}, theta={theta_val:.3f}")
+                found_block = True
+    
+                vt_circuit.add(q,PS(phi=phi_val))
+                vt_circuit.add(q, BS())
+                vt_circuit.add(q,PS(phi=2 * theta_val))
+                vt_circuit.add(q, BS())
+    if add_alpha:
+        for i, alpha in enumerate(v_alphas):
+            #print(f"  WG-{i}: Phase Shifter = {alpha:.3f}")
+            vt_circuit.add(i,PS(phi=alpha))
+    return vt_circuit
+                        
